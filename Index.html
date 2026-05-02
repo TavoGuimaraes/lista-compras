@@ -7,236 +7,236 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#27ae60">
   <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background:#f0f4f8;
-      color:#1a1a2e;
-      min-height:100vh;
-      padding:16px;
+      background: #f0f4f8;
+      color: #1a1a2e;
+      min-height: 100vh;
     }
 
-    /* HEADER FIXO */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background:#27ae60;
-      color:white;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:10px 16px;
-      margin:-16px -16px 12px -16px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+      background: #27ae60;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    header h1 { font-size:1.2rem; color:white; }
-    header small { font-size:0.75rem; color:rgba(255,255,255,0.85); display:block; }
+    header h1 { font-size: 1.1rem; color: white; }
+    header small { font-size: 0.72rem; color: rgba(255,255,255,0.85); display: block; }
+    .btn-header {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 7px 11px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
 
-    /* CARD RESUMO TOPO - FIXO */
     #card-resumo-topo {
       position: sticky;
       top: 52px;
       z-index: 99;
-      background:white;
-      border-radius:10px;
-      padding:10px 12px;
-      margin-bottom:10px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.12);
-      border-left:4px solid #27ae60;
+      background: white;
+      border-left: 4px solid #27ae60;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 16px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      margin-bottom: 10px;
     }
     .resumo-topo-linha {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
+    .resumo-topo-label { font-size: 0.68rem; color: #888; margin-bottom: 2px; }
     .resumo-topo-total {
-      font-size:1.3rem;
-      font-weight:800;
-      color:#27ae60;
-    }
-    .resumo-topo-label {
-      font-size:0.7rem;
-      color:#888;
-      margin-bottom:2px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #27ae60;
+      line-height: 1;
     }
     #orcamento-info-topo {
-      font-size:0.8rem;
-      margin-top:3px;
-      font-weight:600;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 3px;
+      min-height: 16px;
     }
-    .orcamento-input-wrap {
-      display:flex;
-      flex-direction:column;
-      min-width:130px;
-    }
-    .orcamento-input-wrap label {
-      font-size:0.7rem;
-      color:#888;
-      margin-bottom:3px;
-    }
-    .orcamento-input-wrap input {
-      padding:5px 8px;
-      border-radius:8px;
-      border:1px solid #d0d7de;
-      font-size:0.9rem;
-      background:#fafafa;
-      margin-bottom:0;
+    .orc-wrap label { font-size: 0.68rem; color: #888; display: block; margin-bottom: 3px; }
+    .orc-wrap input {
+      padding: 6px 9px;
+      border-radius: 8px;
+      border: 1px solid #d0d7de;
+      font-size: 0.9rem;
+      background: #fafafa;
+      width: 140px;
     }
 
-    .btn {
-      border:none;
-      border-radius:8px;
-      padding:8px 12px;
-      font-size:0.85rem;
-      font-weight:600;
-      cursor:pointer;
+    .prog-wrap { margin-top: 8px; }
+    .prog-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: #888;
+      margin-bottom: 3px;
     }
-    .btn-primario  { background:#27ae60; color:white; }
-    .btn-secundario{ background:#e1ecff; color:#2c3e50; }
-    .btn-header    { background:rgba(255,255,255,0.2); color:white; border:none;
-                     border-radius:8px; padding:6px 10px; font-size:0.8rem;
-                     font-weight:600; cursor:pointer; }
+    .prog-bar { height: 5px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
+    .prog-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2ecc71, #27ae60);
+      border-radius: 10px;
+      transition: width 0.4s;
+    }
+
+    .conteudo { padding: 0 16px 16px 16px; }
 
     .card {
-      background:white;
-      border-radius:10px;
-      padding:12px;
-      margin-bottom:10px;
-      box-shadow:0 1px 4px rgba(0,0,0,0.08);
+      background: white;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
-    .card h2 { font-size:1rem; margin-bottom:10px; color:#27ae60; }
+    .card h2 { font-size: 1rem; margin-bottom: 10px; color: #27ae60; }
 
     label {
-      font-size:0.75rem;
-      font-weight:600;
-      color:#555;
-      display:block;
-      margin-bottom:3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #555;
+      display: block;
+      margin-bottom: 3px;
     }
     input, select {
-      width:100%;
-      padding:7px 9px;
-      margin-bottom:8px;
-      border-radius:8px;
-      border:1px solid #d0d7de;
-      font-size:0.9rem;
-      background:#fafafa;
+      width: 100%;
+      padding: 7px 9px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      border: 1px solid #d0d7de;
+      font-size: 0.9rem;
+      background: #fafafa;
     }
     input:focus, select:focus {
-      outline:none;
-      border-color:#27ae60;
-      background:white;
+      outline: none;
+      border-color: #27ae60;
+      background: white;
     }
-    .form-row { display:flex; gap:8px; flex-wrap:wrap; }
-    .fg-nome { flex:2; min-width:140px; }
-    .fg-peq  { flex:1; min-width:70px; }
+    .form-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .fg-nome { flex: 2; min-width: 140px; }
+    .fg-peq  { flex: 1; min-width: 70px; }
+
+    .btn {
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primario   { background: #27ae60; color: white; }
+    .btn-secundario { background: #e1ecff; color: #2c3e50; }
 
     .lista-vazia {
-      text-align:center;
-      padding:20px 10px;
-      color:#888;
-      font-size:0.9rem;
+      text-align: center;
+      padding: 20px 10px;
+      color: #888;
+      font-size: 0.9rem;
     }
     .item-linha {
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-      padding:8px 0;
-      border-bottom:1px solid #f0f0f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
     }
-    .item-linha:last-child { border-bottom:none; }
+    .item-linha:last-child { border-bottom: none; }
     .item-check {
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      border:2px solid #27ae60;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:0.8rem;
-      cursor:pointer;
-      flex-shrink:0;
-      color:white;
-      margin-top:2px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #27ae60;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      color: white;
+      margin-top: 2px;
     }
-    .item-check.marcado { background:#27ae60; }
-    .item-conteudo { flex:1; min-width:0; }
+    .item-check.marcado { background: #27ae60; }
+    .item-conteudo { flex: 1; min-width: 0; }
     .item-nome {
-      font-weight:600;
-      font-size:0.9rem;
-      margin-bottom:2px;
-      word-break:break-word;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+      word-break: break-word;
     }
-    .item-nome.comprado { text-decoration:line-through; color:#aaa; }
-    .item-detalhe { font-size:0.8rem; color:#666; margin-bottom:2px; }
+    .item-nome.comprado { text-decoration: line-through; color: #aaa; }
+    .item-detalhe { font-size: 0.8rem; color: #666; margin-bottom: 2px; }
     .item-cat {
-      font-size:0.7rem;
-      color:#27ae60;
-      background:#e8f8f0;
-      border-radius:10px;
-      padding:1px 6px;
-      display:inline-block;
+      font-size: 0.7rem;
+      color: #27ae60;
+      background: #e8f8f0;
+      border-radius: 10px;
+      padding: 1px 6px;
+      display: inline-block;
     }
     .item-acoes {
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      align-items:flex-end;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-end;
     }
     .btn-mini {
-      padding:4px 8px;
-      font-size:0.72rem;
-      border-radius:6px;
-      border:none;
-      cursor:pointer;
-      font-weight:600;
+      padding: 4px 8px;
+      font-size: 0.72rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
     }
-    .btn-del    { background:#ffe5e5; color:#c0392b; }
-    .btn-editar { background:#eaf4ff; color:#2980b9; }
+    .btn-del    { background: #ffe5e5; color: #c0392b; }
+    .btn-editar { background: #eaf4ff; color: #2980b9; }
 
-    .rodape { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
+    .rodape { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
 
     textarea {
-      width:100%;
-      min-height:120px;
-      padding:8px;
-      border-radius:8px;
-      border:1px solid #d0d7de;
-      font-size:0.82rem;
-      font-family:monospace;
-      background:#fafafa;
-      margin-top:6px;
-    }
-    .prog-wrap { margin-bottom:8px; }
-    .prog-info {
-      display:flex;
-      justify-content:space-between;
-      font-size:0.75rem;
-      color:#888;
-      margin-bottom:3px;
-    }
-    .prog-bar  { height:6px; background:#e0e0e0; border-radius:10px; overflow:hidden; }
-    .prog-fill {
-      height:100%;
-      background:linear-gradient(90deg,#2ecc71,#27ae60);
-      border-radius:10px;
-      transition:width 0.4s;
+      width: 100%;
+      min-height: 120px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #d0d7de;
+      font-size: 0.82rem;
+      font-family: monospace;
+      background: #fafafa;
+      margin-top: 6px;
     }
 
-    .orc-ok        { color:#27ae60; }
-    .orc-alerta    { color:#f39c12; }
-    .orc-estourado { color:#e74c3c; }
+    .orc-ok        { color: #27ae60; }
+    .orc-alerta    { color: #f39c12; }
+    .orc-estourado { color: #e74c3c; }
 
-    #inp-preco { text-align:right; font-weight:700; letter-spacing:1px; }
-    #inp-preco:focus { border-color:#27ae60; background:#f0fff4; }
+    #inp-preco {
+      text-align: right;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    #inp-preco:focus { border-color: #27ae60; background: #f0fff4; }
   </style>
 </head>
 <body>
 
-<!-- HEADER FIXO -->
 <header>
   <div>
     <h1>🛒 Lista de Compras</h1>
@@ -245,7 +245,6 @@
   <button class="btn-header" onclick="carregarBase()">📋 Lista base</button>
 </header>
 
-<!-- CARD RESUMO FIXO NO TOPO -->
 <div id="card-resumo-topo">
   <div class="resumo-topo-linha">
     <div>
@@ -253,120 +252,118 @@
       <div class="resumo-topo-total" id="resumo-total-topo">R$ 0,00</div>
       <div id="orcamento-info-topo"></div>
     </div>
-    <div class="orcamento-input-wrap">
+    <div class="orc-wrap">
       <label for="inp-orcamento-topo">Orçamento (R$)</label>
       <input id="inp-orcamento-topo" type="number" min="0" step="0.01"
              placeholder="Ex: 300,00" oninput="atualizarOrcamento()" />
     </div>
   </div>
-  <!-- barra de progresso no resumo topo -->
-  <div class="prog-wrap" id="prog-wrap" style="display:none;margin-top:8px;">
+  <div class="prog-wrap" id="prog-wrap" style="display:none">
     <div class="prog-info">
       <span id="prog-texto">0 de 0 comprados</span>
       <span id="prog-pct">0%</span>
     </div>
-    <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    <div class="prog-bar">
+      <div class="prog-fill" id="prog-fill" style="width:0%"></div>
+    </div>
   </div>
 </div>
 
-<!-- CARD NOVO ITEM -->
-<div class="card">
-  <h2>Novo item</h2>
+<div class="conteudo">
 
-  <div class="form-row">
-    <div class="fg-nome">
-      <label for="inp-nome">Nome</label>
-      <input id="inp-nome" type="text" placeholder="Ex: Arroz ou selecione abaixo" />
+  <div class="card">
+    <h2>Novo item</h2>
+    <div class="form-row">
+      <div class="fg-nome">
+        <label for="inp-nome">Nome</label>
+        <input id="inp-nome" type="text" placeholder="Ex: Arroz ou selecione abaixo" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="fg-nome">
+        <label for="sel-base">Itens cadastrados (opcional)</label>
+        <select id="sel-base" onchange="preencherPorBase()">
+          <option value="">Selecione um item da base...</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="fg-peq">
+        <label for="inp-qtd">Qtd</label>
+        <input id="inp-qtd" type="number" min="0.1" step="0.1" value="1" />
+      </div>
+      <div class="fg-peq">
+        <label for="inp-preco">Preço (R$)</label>
+        <input id="inp-preco" type="text" inputmode="numeric"
+               placeholder="0,00" autocomplete="off" />
+      </div>
+      <div class="fg-nome">
+        <label for="inp-cat">Categoria (opcional)</label>
+        <select id="inp-cat">
+          <option value="">(nenhuma)</option>
+          <option value="Hortifruti">Hortifruti</option>
+          <option value="Açougue">Açougue</option>
+          <option value="Padaria">Padaria</option>
+          <option value="Laticínios">Laticínios</option>
+          <option value="Bebidas">Bebidas</option>
+          <option value="Limpeza">Limpeza</option>
+          <option value="Higiene">Higiene</option>
+          <option value="Congelados">Congelados</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-primario" style="width:100%;margin-top:4px"
+            onclick="adicionarItem()">+ Adicionar</button>
+  </div>
+
+  <div class="card">
+    <h2>Itens da lista</h2>
+    <div id="lista-itens"></div>
+    <div class="lista-vazia" id="lista-vazia">
+      Sua lista está vazia. Adicione itens acima ou clique em "Lista base".
+    </div>
+    <div class="rodape">
+      <button class="btn btn-secundario" onclick="compartilhar()">📤 Compartilhar</button>
+      <button class="btn btn-secundario" onclick="limparLista()">🗑️ Limpar lista</button>
     </div>
   </div>
 
-  <div class="form-row">
-    <div class="fg-nome">
-      <label for="sel-base">Itens cadastrados (opcional)</label>
-      <select id="sel-base" onchange="preencherPorBase()">
-        <option value="">Selecione um item da base...</option>
-      </select>
-    </div>
+  <div class="card" id="card-compartilhar" style="display:none">
+    <h2>📤 Copie e cole no WhatsApp</h2>
+    <textarea id="txt-compartilhar" readonly></textarea>
+    <button class="btn btn-primario" style="width:100%;margin-top:8px"
+            onclick="copiarTexto()">📋 Copiar texto</button>
   </div>
 
-  <div class="form-row">
-    <div class="fg-peq">
-      <label for="inp-qtd">Qtd</label>
-      <input id="inp-qtd" type="number" min="0.1" step="0.1" value="1" />
-    </div>
-    <div class="fg-peq">
-      <label for="inp-preco">Preço (R$)</label>
-      <input id="inp-preco" type="text" inputmode="numeric" placeholder="0,00" autocomplete="off" />
-    </div>
-    <div class="fg-nome">
-      <label for="inp-cat">Categoria (opcional)</label>
-      <select id="inp-cat">
-        <option value="">(nenhuma)</option>
-        <option value="Hortifruti">Hortifruti</option>
-        <option value="Açougue">Açougue</option>
-        <option value="Padaria">Padaria</option>
-        <option value="Laticínios">Laticínios</option>
-        <option value="Bebidas">Bebidas</option>
-        <option value="Limpeza">Limpeza</option>
-        <option value="Higiene">Higiene</option>
-        <option value="Congelados">Congelados</option>
-        <option value="Outros">Outros</option>
-      </select>
-    </div>
-  </div>
-
-  <button class="btn btn-primario" style="width:100%;margin-top:4px" onclick="adicionarItem()">+ Adicionar</button>
-</div>
-
-<!-- CARD LISTA -->
-<div class="card">
-  <h2>Itens da lista</h2>
-
-  <div id="lista-itens"></div>
-  <div class="lista-vazia" id="lista-vazia">
-    Sua lista está vazia. Adicione itens acima ou clique em "Lista base".
-  </div>
-
-  <div class="rodape">
-    <button class="btn btn-secundario" onclick="compartilhar()">📤 Compartilhar</button>
-    <button class="btn btn-secundario" onclick="limparLista()">🗑️ Limpar lista</button>
-  </div>
-</div>
-
-<!-- CARD COMPARTILHAR -->
-<div class="card" id="card-compartilhar" style="display:none">
-  <h2>📤 Copie e cole no WhatsApp</h2>
-  <textarea id="txt-compartilhar" readonly></textarea>
-  <button class="btn btn-primario" style="width:100%;margin-top:8px" onclick="copiarTexto()">📋 Copiar texto</button>
 </div>
 
 <script>
-const LISTA_BASE = [
+var LISTA_BASE = [
   {nome:"Abacaxi",qtd:1,unid:"un",preco:0,cat:"Hortifruti"},
   {nome:"Absorvente",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Acetona",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Adoçante",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Água sanitária",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Água tônica",qtd:1,unid:"un",preco:0,cat:"Bebidas"},
+  {nome:"Adocante",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Agua sanitaria",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Agua tonica",qtd:1,unid:"un",preco:0,cat:"Bebidas"},
   {nome:"Alface",qtd:1,unid:"un",preco:0,cat:"Hortifruti"},
   {nome:"Alho",qtd:1,unid:"un",preco:0,cat:"Hortifruti"},
-  {nome:"Algodão",qtd:1,unid:"un",preco:0,cat:"Higiene"},
+  {nome:"Algodao",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Amaciante",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Amido",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Arroz",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Atum",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Aveia em flocos fino",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Azeite",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Açúcar",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Acucar",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Batata",qtd:1,unid:"kg",preco:0,cat:"Hortifruti"},
   {nome:"Batata palha",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Biscoito de gergilim",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Café",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Cafe",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Canela",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Carne",qtd:1,unid:"kg",preco:0,cat:"Açougue"},
+  {nome:"Carne",qtd:1,unid:"kg",preco:0,cat:"Acougue"},
   {nome:"Cebola",qtd:1,unid:"kg",preco:0,cat:"Hortifruti"},
-  {nome:"Cebola, salsa e alho",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Chá",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Cha",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Chocolate 70%",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Cif",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Coco seco ralado 100g",qtd:1,unid:"un",preco:0,cat:"Geral"},
@@ -378,86 +375,85 @@ const LISTA_BASE = [
   {nome:"Desodorante",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Detergente",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Enxaguante bucal",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Esponja que não risca",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Esponja que nao risca",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Farinha de aveia",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Farinha de mandioca",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Farinha de trigo",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Farinha panko",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Feijão",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Feijao",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Fermento",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Filtro de café",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Filtro de cafe",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Fio dental",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Flocão de milho",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Flocao de milho",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Geleia",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Gergilim",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Gillette",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Hortelã",qtd:1,unid:"un",preco:0,cat:"Hortifruti"},
-  {nome:"Iogurte natural",qtd:1,unid:"un",preco:0,cat:"Laticínios"},
+  {nome:"Hortela",qtd:1,unid:"un",preco:0,cat:"Hortifruti"},
+  {nome:"Iogurte natural",qtd:1,unid:"un",preco:0,cat:"Laticinios"},
   {nome:"Inseticida isca",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Inseticida spray",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Inseticida tomada",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Ketchup",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Leite",qtd:1,unid:"L",preco:0,cat:"Laticínios"},
+  {nome:"Leite",qtd:1,unid:"L",preco:0,cat:"Laticinios"},
   {nome:"Leite condensado",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Lenço umedecido",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Lenço umedecido limpeza",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Lenco umedecido",qtd:1,unid:"un",preco:0,cat:"Higiene"},
+  {nome:"Lenco umedecido limpeza",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Limpa vidros",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Luva",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Lysoform",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Lysoform spray",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Macarrão",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Macarrão recheado",qtd:1,unid:"un",preco:0,cat:"Congelados"},
+  {nome:"Macarrao",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Macarrao recheado",qtd:1,unid:"un",preco:0,cat:"Congelados"},
   {nome:"Maionese",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Manga",qtd:1,unid:"un",preco:0,cat:"Hortifruti"},
-  {nome:"Manteiga",qtd:1,unid:"un",preco:0,cat:"Laticínios"},
+  {nome:"Manteiga",qtd:1,unid:"un",preco:0,cat:"Laticinios"},
   {nome:"Massa de bolo",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Maçã",qtd:1,unid:"kg",preco:0,cat:"Hortifruti"},
+  {nome:"Maca",qtd:1,unid:"kg",preco:0,cat:"Hortifruti"},
   {nome:"Milho de pipoca",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Milho lata",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Mostarda",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Nescau ou cacau em pó",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Nescau ou cacau em po",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Nugget",qtd:1,unid:"cx",preco:0,cat:"Congelados"},
-  {nome:"Orégano",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Ovo de codorna",qtd:1,unid:"un",preco:0,cat:"Açougue"},
-  {nome:"Ovos",qtd:1,unid:"dz",preco:0,cat:"Açougue"},
-  {nome:"Óleo corporal",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Óleo de soja",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Oregano",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Ovo de codorna",qtd:1,unid:"un",preco:0,cat:"Acougue"},
+  {nome:"Ovos",qtd:1,unid:"dz",preco:0,cat:"Acougue"},
+  {nome:"Oleo corporal",qtd:1,unid:"un",preco:0,cat:"Higiene"},
+  {nome:"Oleo de soja",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Papel filme",qtd:1,unid:"un",preco:0,cat:"Outros"},
-  {nome:"Papel higiênico Bom Jesus",qtd:1,unid:"un",preco:0,cat:"Higiene"},
+  {nome:"Papel higienico",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Papel laminado",qtd:1,unid:"un",preco:0,cat:"Outros"},
   {nome:"Papel toalha",qtd:2,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Papel toalha reutilizável",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Papel toalha reutilizavel",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Pasta de dente",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Pastilha vaso sanitário",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Pastilha vaso sanitario",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Pato limpeza",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Peito de frango",qtd:1,unid:"kg",preco:0,cat:"Açougue"},
+  {nome:"Peito de frango",qtd:1,unid:"kg",preco:0,cat:"Acougue"},
   {nome:"Pizza",qtd:1,unid:"un",preco:0,cat:"Congelados"},
-  {nome:"Pão de alho",qtd:1,unid:"un",preco:0,cat:"Congelados"},
-  {nome:"Pão de forma",qtd:1,unid:"un",preco:0,cat:"Padaria"},
-  {nome:"Queijo minas",qtd:1,unid:"kg",preco:0,cat:"Laticínios"},
-  {nome:"Queijo muçarela/prato",qtd:1,unid:"kg",preco:0,cat:"Laticínios"},
-  {nome:"Queijo ralado",qtd:1,unid:"un",preco:0,cat:"Laticínios"},
-  {nome:"Requeijão",qtd:1,unid:"un",preco:0,cat:"Laticínios"},
-  {nome:"Sabão em barra",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Sabão em pó",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Sabão líquido roupa",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Sabão líquido roupa preta",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Pao de alho",qtd:1,unid:"un",preco:0,cat:"Congelados"},
+  {nome:"Pao de forma",qtd:1,unid:"un",preco:0,cat:"Padaria"},
+  {nome:"Queijo minas",qtd:1,unid:"kg",preco:0,cat:"Laticinios"},
+  {nome:"Queijo mucarela",qtd:1,unid:"kg",preco:0,cat:"Laticinios"},
+  {nome:"Queijo ralado",qtd:1,unid:"un",preco:0,cat:"Laticinios"},
+  {nome:"Requeijao",qtd:1,unid:"un",preco:0,cat:"Laticinios"},
+  {nome:"Sabao em barra",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Sabao em po",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Sabao liquido roupa",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Sabao liquido roupa preta",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Sabonete",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Sabonete Granado",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Sabonete líquido banheiro",qtd:1,unid:"un",preco:0,cat:"Higiene"},
+  {nome:"Sabonete liquido banheiro",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Saco de lixo",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
-  {nome:"Saco plástico para alimentos",qtd:1,unid:"un",preco:0,cat:"Outros"},
+  {nome:"Saco plastico para alimentos",qtd:1,unid:"un",preco:0,cat:"Outros"},
   {nome:"Sal",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Shampoo Clear",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Shampoo e condicionador",qtd:1,unid:"un",preco:0,cat:"Higiene"},
-  {nome:"Shampoo e condicionador cachorras",qtd:1,unid:"un",preco:0,cat:"Outros"},
-  {nome:"Solução limpar verduras e frutas",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
+  {nome:"Solucao limpar verduras e frutas",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Spray de passar roupa",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Suco de abacaxi",qtd:1,unid:"un",preco:0,cat:"Bebidas"},
   {nome:"Talco",qtd:1,unid:"un",preco:0,cat:"Higiene"},
   {nome:"Tapioca",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Tempero para hambúrguer",qtd:1,unid:"un",preco:0,cat:"Geral"},
-  {nome:"Tilápia",qtd:1,unid:"kg",preco:0,cat:"Açougue"},
+  {nome:"Tempero para hamburguer",qtd:1,unid:"un",preco:0,cat:"Geral"},
+  {nome:"Tilapia",qtd:1,unid:"kg",preco:0,cat:"Acougue"},
   {nome:"Tomate",qtd:1,unid:"kg",preco:0,cat:"Hortifruti"},
   {nome:"Torrada",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Trigo para kibe",qtd:1,unid:"un",preco:0,cat:"Geral"},
@@ -465,19 +461,38 @@ const LISTA_BASE = [
   {nome:"Vanish",qtd:1,unid:"un",preco:0,cat:"Limpeza"},
   {nome:"Vinagre",qtd:1,unid:"un",preco:0,cat:"Geral"},
   {nome:"Whiskas",qtd:1,unid:"un",preco:0,cat:"Outros"},
-  {nome:"Álcool",qtd:1,unid:"un",preco:0,cat:"Limpeza"}
+  {nome:"Alcool",qtd:1,unid:"un",preco:0,cat:"Limpeza"}
 ];
 
-let itens = [];
-let orcamento = 0;
-let digitosPreco = '';
+var itens = [];
+var orcamento = 0;
+var digitosPreco = '';
 
-// ===== MÁSCARA PREÇO =====
+// ===== LOCALSTORAGE =====
+function salvarNoStorage() {
+  localStorage.setItem('lista-compras-itens', JSON.stringify(itens));
+  var orc = document.getElementById('inp-orcamento-topo');
+  if (orc) localStorage.setItem('lista-compras-orcamento', orc.value);
+}
+
+function carregarDoStorage() {
+  var salvo = localStorage.getItem('lista-compras-itens');
+  if (salvo) {
+    try { itens = JSON.parse(salvo); } catch(e) { itens = []; }
+  }
+  var orc = localStorage.getItem('lista-compras-orcamento');
+  if (orc) {
+    var inp = document.getElementById('inp-orcamento-topo');
+    if (inp) { inp.value = orc; orcamento = parseFloat(orc) || 0; }
+  }
+}
+
+// ===== MASCARA PRECO =====
 function aplicarMascaraPreco(e) {
-  const tecla = e.key;
+  var tecla = e.key;
   if (tecla === 'Enter') { adicionarItem(); e.preventDefault(); return; }
   if (tecla === 'Backspace') {
-    digitosPreco = digitosPreco.slice(0,-1);
+    digitosPreco = digitosPreco.slice(0, -1);
     e.preventDefault();
     atualizarExibicaoPreco();
     return;
@@ -493,41 +508,43 @@ function aplicarMascaraPreco(e) {
 }
 
 function atualizarExibicaoPreco() {
-  const inp = document.getElementById('inp-preco');
+  var inp = document.getElementById('inp-preco');
   if (!inp) return;
-  if (digitosPreco === '') { inp.value=''; return; }
-  const padded = digitosPreco.padStart(3,'0');
-  const reais  = padded.slice(0,-2);
-  const cent   = padded.slice(-2);
-  inp.value = parseInt(reais,10).toLocaleString('pt-BR') + ',' + cent;
+  if (digitosPreco === '') { inp.value = ''; return; }
+  var padded = digitosPreco.padStart(3, '0');
+  var reais  = padded.slice(0, -2);
+  var cent   = padded.slice(-2);
+  inp.value = parseInt(reais, 10).toLocaleString('pt-BR') + ',' + cent;
 }
 
 function getPrecoNumerico() {
   if (digitosPreco === '') return 0;
-  return parseInt(digitosPreco,10) / 100;
+  return parseInt(digitosPreco, 10) / 100;
 }
 
 function resetarPreco() {
   digitosPreco = '';
-  const inp = document.getElementById('inp-preco');
+  var inp = document.getElementById('inp-preco');
   if (inp) inp.value = '';
 }
 
 // ===== UTIL =====
 function fmt(v) {
-  return 'R$ ' + Number(v).toLocaleString('pt-BR',{
-    minimumFractionDigits:2, maximumFractionDigits:2
+  return 'R$ ' + Number(v).toLocaleString('pt-BR', {
+    minimumFractionDigits: 2, maximumFractionDigits: 2
   });
 }
 
 // ===== SELECT BASE =====
 function preencherSelectBase() {
-  const sel = document.getElementById('sel-base');
+  var sel = document.getElementById('sel-base');
   if (!sel) return;
   sel.innerHTML = '<option value="">Selecione um item da base...</option>';
-  const ord = [...LISTA_BASE].sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
-  ord.forEach(item => {
-    const opt = document.createElement('option');
+  var ord = LISTA_BASE.slice().sort(function(a, b) {
+    return a.nome.localeCompare(b.nome, 'pt-BR');
+  });
+  ord.forEach(function(item) {
+    var opt = document.createElement('option');
     opt.value = item.nome;
     opt.textContent = item.nome;
     sel.appendChild(opt);
@@ -535,10 +552,10 @@ function preencherSelectBase() {
 }
 
 function preencherPorBase() {
-  const sel = document.getElementById('sel-base');
-  const nomeSel = sel.value;
+  var sel = document.getElementById('sel-base');
+  var nomeSel = sel.value;
   if (!nomeSel) return;
-  const base = LISTA_BASE.find(i => i.nome === nomeSel);
+  var base = LISTA_BASE.find(function(i) { return i.nome === nomeSel; });
   if (!base) return;
   document.getElementById('inp-nome').value = base.nome;
   document.getElementById('inp-qtd').value  = base.qtd || 1;
@@ -550,85 +567,94 @@ function preencherPorBase() {
   document.getElementById('inp-preco').focus();
 }
 
-// ===== AÇÕES =====
+// ===== ACOES =====
 function carregarBase() {
   if (itens.length > 0 && !confirm('Substituir a lista atual pela lista base?')) return;
-  itens = LISTA_BASE.map(i => ({
-    id: Date.now()+Math.random(),
-    nome:i.nome, qtd:i.qtd, preco:i.preco,
-    unid:i.unid||'un', cat:i.cat||'', comprado:false
-  }));
+  itens = LISTA_BASE.map(function(i) {
+    return {
+      id: Date.now() + Math.random(),
+      nome: i.nome, qtd: i.qtd, preco: i.preco,
+      unid: i.unid || 'un', cat: i.cat || '', comprado: false
+    };
+  });
+  salvarNoStorage();
   renderizar();
 }
 
 function adicionarItem() {
-  const nome  = document.getElementById('inp-nome').value.trim();
-  const qtd   = parseFloat(document.getElementById('inp-qtd').value) || 0;
-  const preco = getPrecoNumerico();
-  const cat   = document.getElementById('inp-cat').value || '';
+  var nome  = document.getElementById('inp-nome').value.trim();
+  var qtd   = parseFloat(document.getElementById('inp-qtd').value) || 0;
+  var preco = getPrecoNumerico();
+  var cat   = document.getElementById('inp-cat').value || '';
   if (!nome) { alert('Digite o nome do item'); document.getElementById('inp-nome').focus(); return; }
-  if (qtd <= 0) { alert('Quantidade inválida'); document.getElementById('inp-qtd').focus(); return; }
-  itens.push({ id:Date.now(), nome, qtd, preco, unid:'un', cat, comprado:false });
+  if (qtd <= 0) { alert('Quantidade invalida'); document.getElementById('inp-qtd').focus(); return; }
+  itens.push({ id: Date.now(), nome: nome, qtd: qtd, preco: preco, unid: 'un', cat: cat, comprado: false });
   document.getElementById('inp-nome').value  = '';
   document.getElementById('inp-qtd').value   = '1';
   document.getElementById('inp-cat').value   = '';
   document.getElementById('sel-base').value  = '';
   resetarPreco();
   document.getElementById('inp-nome').focus();
+  salvarNoStorage();
   renderizar();
 }
 
 function limparLista() {
   if (!confirm('Limpar todos os itens da lista?')) return;
   itens = [];
+  salvarNoStorage();
   renderizar();
 }
 
 function toggleComprado(id) {
-  const it = itens.find(i => i.id===id);
+  var it = itens.find(function(i) { return i.id === id; });
   if (!it) return;
   it.comprado = !it.comprado;
+  salvarNoStorage();
   renderizar();
 }
 
 function removerItem(id) {
-  itens = itens.filter(i => i.id!==id);
+  itens = itens.filter(function(i) { return i.id !== id; });
+  salvarNoStorage();
   renderizar();
 }
 
 function editarItem(id) {
-  const it = itens.find(i => i.id===id);
+  var it = itens.find(function(i) { return i.id === id; });
   if (!it) return;
-  const nq = prompt('Quantidade para "'+it.nome+'":',it.qtd);
-  if (nq===null) return;
-  const np = prompt('Preço unitário (R$) para "'+it.nome+'":',it.preco);
-  if (np===null) return;
-  let v1 = parseFloat(nq); if (isNaN(v1)||v1<0) v1=0; it.qtd=v1;
-  let v2 = parseFloat(np); if (isNaN(v2)||v2<0) v2=0; it.preco=v2;
+  var nq = prompt('Quantidade para "' + it.nome + '":', it.qtd);
+  if (nq === null) return;
+  var np = prompt('Preco unitario (R$) para "' + it.nome + '":', it.preco);
+  if (np === null) return;
+  var v1 = parseFloat(nq); if (isNaN(v1) || v1 < 0) v1 = 0; it.qtd = v1;
+  var v2 = parseFloat(np); if (isNaN(v2) || v2 < 0) v2 = 0; it.preco = v2;
+  salvarNoStorage();
   renderizar();
 }
 
-// ===== ORÇAMENTO / RESUMO =====
+// ===== ORCAMENTO / RESUMO =====
 function atualizarOrcamento() {
-  const inp = document.getElementById('inp-orcamento-topo');
+  var inp = document.getElementById('inp-orcamento-topo');
   orcamento = parseFloat(inp.value) || 0;
+  salvarNoStorage();
   renderizarResumo();
 }
 
 function renderizarResumo() {
-  const total = itens.reduce((s,i) => s + i.qtd*i.preco, 0);
+  var total = itens.reduce(function(s, i) { return s + i.qtd * i.preco; }, 0);
 
   document.getElementById('subtitulo').textContent =
-    `${itens.length} ite${itens.length===1?'m':'ns'} • ${fmt(total)}`;
+    itens.length + ' ite' + (itens.length === 1 ? 'm' : 'ns') + ' • ' + fmt(total);
 
   document.getElementById('resumo-total-topo').textContent = fmt(total);
 
-  const info = document.getElementById('orcamento-info-topo');
+  var info = document.getElementById('orcamento-info-topo');
   info.textContent = '';
   info.className = '';
 
   if (orcamento && orcamento > 0) {
-    const diff = orcamento - total;
+    var diff = orcamento - total;
     if (diff >= orcamento * 0.1) {
       info.className = 'orc-ok';
       info.textContent = 'Sobra ' + fmt(diff);
@@ -645,21 +671,21 @@ function renderizarResumo() {
 }
 
 function atualizarProgresso() {
-  const wrap = document.getElementById('prog-wrap');
-  if (itens.length === 0) { wrap.style.display='none'; return; }
-  const comprados = itens.filter(i=>i.comprado).length;
-  const pct = Math.round((comprados/itens.length)*100);
+  var wrap = document.getElementById('prog-wrap');
+  if (itens.length === 0) { wrap.style.display = 'none'; return; }
+  var comprados = itens.filter(function(i) { return i.comprado; }).length;
+  var pct = Math.round((comprados / itens.length) * 100);
   wrap.style.display = '';
   document.getElementById('prog-texto').textContent =
-    `${comprados} de ${itens.length} comprados`;
-  document.getElementById('prog-pct').textContent = pct+'%';
-  document.getElementById('prog-fill').style.width = pct+'%';
+    comprados + ' de ' + itens.length + ' comprados';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-fill').style.width = pct + '%';
 }
 
 // ===== RENDER =====
 function renderizar() {
-  const cont  = document.getElementById('lista-itens');
-  const vazio = document.getElementById('lista-vazia');
+  var cont  = document.getElementById('lista-itens');
+  var vazio = document.getElementById('lista-vazia');
   cont.innerHTML = '';
 
   if (itens.length === 0) {
@@ -669,49 +695,50 @@ function renderizar() {
   }
   vazio.style.display = 'none';
 
-  const ord = [...itens].sort((a,b) => a.comprado - b.comprado);
-  ord.forEach(item => {
-    const linha = document.createElement('div');
+  var ord = itens.slice().sort(function(a, b) { return a.comprado - b.comprado; });
+
+  ord.forEach(function(item) {
+    var linha = document.createElement('div');
     linha.className = 'item-linha';
 
-    const chk = document.createElement('div');
+    var chk = document.createElement('div');
     chk.className = 'item-check' + (item.comprado ? ' marcado' : '');
     chk.textContent = item.comprado ? '✓' : '';
-    chk.onclick = () => toggleComprado(item.id);
+    chk.onclick = function() { toggleComprado(item.id); };
 
-    const contItem = document.createElement('div');
+    var contItem = document.createElement('div');
     contItem.className = 'item-conteudo';
 
-    const nome = document.createElement('div');
+    var nome = document.createElement('div');
     nome.className = 'item-nome' + (item.comprado ? ' comprado' : '');
     nome.textContent = item.nome;
 
-    const det = document.createElement('div');
+    var det = document.createElement('div');
     det.className = 'item-detalhe';
-    const tot = item.qtd * item.preco;
-    det.textContent = `${item.qtd} un × ${fmt(item.preco)} = ${fmt(tot)}`;
+    var tot = item.qtd * item.preco;
+    det.textContent = item.qtd + ' un x ' + fmt(item.preco) + ' = ' + fmt(tot);
 
     contItem.appendChild(nome);
     contItem.appendChild(det);
 
     if (item.cat) {
-      const cat = document.createElement('div');
-      cat.innerHTML = `<span class="item-cat">${item.cat}</span>`;
-      contItem.appendChild(cat);
+      var catDiv = document.createElement('div');
+      catDiv.innerHTML = '<span class="item-cat">' + item.cat + '</span>';
+      contItem.appendChild(catDiv);
     }
 
-    const acoes = document.createElement('div');
+    var acoes = document.createElement('div');
     acoes.className = 'item-acoes';
 
-    const bEd = document.createElement('button');
+    var bEd = document.createElement('button');
     bEd.className = 'btn-mini btn-editar';
     bEd.textContent = 'Editar';
-    bEd.onclick = () => editarItem(item.id);
+    bEd.onclick = function() { editarItem(item.id); };
 
-    const bDel = document.createElement('button');
+    var bDel = document.createElement('button');
     bDel.className = 'btn-mini btn-del';
     bDel.textContent = 'Remover';
-    bDel.onclick = () => removerItem(item.id);
+    bDel.onclick = function() { removerItem(item.id); };
 
     acoes.appendChild(bEd);
     acoes.appendChild(bDel);
@@ -727,36 +754,38 @@ function renderizar() {
 
 // ===== COMPARTILHAR =====
 function compartilhar() {
-  if (itens.length === 0) { alert('A lista está vazia.'); return; }
-  let txt = '🛒 Lista de Compras\n\n';
-  itens.forEach(item => {
-    const status = item.comprado ? '✅' : '⬜';
-    const tot = item.qtd * item.preco;
-    txt += `${status} ${item.nome} - ${item.qtd} un × ${fmt(item.preco)} = ${fmt(tot)}\n`;
+  if (itens.length === 0) { alert('A lista esta vazia.'); return; }
+  var txt = 'Lista de Compras\n\n';
+  itens.forEach(function(item) {
+    var status = item.comprado ? '[OK]' : '[  ]';
+    var tot = item.qtd * item.preco;
+    txt += status + ' ' + item.nome + ' - ' + item.qtd + ' un x ' + fmt(item.preco) + ' = ' + fmt(tot) + '\n';
   });
-  const total = itens.reduce((s,i) => s+i.qtd*i.preco, 0);
-  txt += `\nTotal: ${fmt(total)}`;
+  var total = itens.reduce(function(s, i) { return s + i.qtd * i.preco; }, 0);
+  txt += '\nTotal: ' + fmt(total);
   document.getElementById('txt-compartilhar').value = txt;
   document.getElementById('card-compartilhar').style.display = '';
 }
 
 function copiarTexto() {
-  const ta = document.getElementById('txt-compartilhar');
+  var ta = document.getElementById('txt-compartilhar');
   ta.select();
   try { document.execCommand('copy'); alert('Texto copiado! Cole no WhatsApp.'); }
-  catch { alert('Selecione o texto e copie manualmente.'); }
+  catch(e) { alert('Selecione o texto e copie manualmente.'); }
 }
 
 // ===== INIT =====
 document.getElementById('inp-preco').addEventListener('keydown', aplicarMascaraPreco);
-document.getElementById('inp-nome').addEventListener('keydown', e => {
+document.getElementById('inp-nome').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') adicionarItem();
 });
+
 preencherSelectBase();
+carregarDoStorage();
 renderizar();
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
+  navigator.serviceWorker.register('sw.js').catch(function() {});
 }
 </script>
 </body>
