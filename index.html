@@ -468,7 +468,6 @@ var itens = [];
 var orcamento = 0;
 var digitosPreco = '';
 
-// ===== LOCALSTORAGE =====
 function salvarNoStorage() {
   localStorage.setItem('lista-compras-itens', JSON.stringify(itens));
   var orc = document.getElementById('inp-orcamento-topo');
@@ -487,7 +486,6 @@ function carregarDoStorage() {
   }
 }
 
-// ===== MASCARA PRECO =====
 function aplicarMascaraPreco(e) {
   var tecla = e.key;
   if (tecla === 'Enter') { adicionarItem(); e.preventDefault(); return; }
@@ -528,14 +526,12 @@ function resetarPreco() {
   if (inp) inp.value = '';
 }
 
-// ===== UTIL =====
 function fmt(v) {
   return 'R$ ' + Number(v).toLocaleString('pt-BR', {
     minimumFractionDigits: 2, maximumFractionDigits: 2
   });
 }
 
-// ===== SELECT BASE =====
 function preencherSelectBase() {
   var sel = document.getElementById('sel-base');
   if (!sel) return;
@@ -567,7 +563,6 @@ function preencherPorBase() {
   document.getElementById('inp-preco').focus();
 }
 
-// ===== ACOES =====
 function carregarBase() {
   if (itens.length > 0 && !confirm('Substituir a lista atual pela lista base?')) return;
   itens = LISTA_BASE.map(function(i) {
@@ -633,7 +628,6 @@ function editarItem(id) {
   renderizar();
 }
 
-// ===== ORCAMENTO / RESUMO =====
 function atualizarOrcamento() {
   var inp = document.getElementById('inp-orcamento-topo');
   orcamento = parseFloat(inp.value) || 0;
@@ -682,7 +676,6 @@ function atualizarProgresso() {
   document.getElementById('prog-fill').style.width = pct + '%';
 }
 
-// ===== RENDER =====
 function renderizar() {
   var cont  = document.getElementById('lista-itens');
   var vazio = document.getElementById('lista-vazia');
@@ -752,7 +745,6 @@ function renderizar() {
   renderizarResumo();
 }
 
-// ===== COMPARTILHAR =====
 function compartilhar() {
   if (itens.length === 0) { alert('A lista esta vazia.'); return; }
   var txt = 'Lista de Compras\n\n';
@@ -785,7 +777,6 @@ function fallbackCopy() {
   alert('Texto copiado! Cole no WhatsApp.');
 }
 
-// ===== INIT =====
 document.getElementById('inp-preco').addEventListener('keydown', aplicarMascaraPreco);
 document.getElementById('inp-nome').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') adicionarItem();
@@ -795,10 +786,8 @@ preencherSelectBase();
 carregarDoStorage();
 renderizar();
 
-// Service Worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/lista-compras/sw.js', { scope: '/lista-compras/' })
-    .catch(function() {});
+  navigator.serviceWorker.register('sw.js').catch(function() {});
 }
 </script>
 </body>
